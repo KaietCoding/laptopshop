@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.kaiet.laptopshop.service.UserService;
 
 // @Controller
-@RestController
+@Controller
 public class UserController {
   UserService service;
   
@@ -16,8 +16,9 @@ public class UserController {
     this.service = service;
   }
 
-  @GetMapping("/")
+  @RequestMapping("/")
   public String getHomePage(){
-    return service.handleHello();
+    String test = service.handleHello();
+    return "kaiet.html";
   }
 }
