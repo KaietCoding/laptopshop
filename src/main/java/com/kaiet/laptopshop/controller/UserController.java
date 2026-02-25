@@ -1,6 +1,7 @@
 package com.kaiet.laptopshop.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,8 +18,10 @@ public class UserController {
   }
 
   @RequestMapping("/")
-  public String getHomePage(){
+  public String getHomePage(Model model){
     String test = service.handleHello();
-    return "kaiet.html";
+    model.addAttribute("kaiet",test);
+    model.addAttribute("hello","Hello from controller");
+    return "hello";
   }
 }
