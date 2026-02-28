@@ -9,20 +9,21 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.kaiet.laptopshop.domain.User;
+import com.kaiet.laptopshop.repository.UserRepository;
 import com.kaiet.laptopshop.service.UserService;
 
 // @Controller
 @Controller
 public class UserController {
-  UserService service;
+  private final UserService userService;
   
-  public UserController(UserService service) {
-    this.service = service;
-  }
 
+  public UserController(UserService userService) {
+    this.userService = userService;
+  }
   @RequestMapping("/")
   public String getHomePage(Model model){
-    String test = service.handleHello();
+    String test = userService.handleHello();
     model.addAttribute("kaiet",test);
     model.addAttribute("hello","Hello from controller");
     return "hello";
@@ -36,6 +37,7 @@ public class UserController {
   @RequestMapping(value="admin/user/create",method = RequestMethod.POST)
   public String creatUserPage(Model model,@ModelAttribute("newUser") User kaiet){
     System.out.println(kaiet.toString());
+    this.userService.saveUser(kaiet);
     return "hello";
   }
 }
