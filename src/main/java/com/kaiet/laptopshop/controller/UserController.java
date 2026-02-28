@@ -1,5 +1,7 @@
 package com.kaiet.laptopshop.controller;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,9 +25,8 @@ public class UserController {
   }
   @RequestMapping("/")
   public String getHomePage(Model model){
-    String test = userService.handleHello();
-    model.addAttribute("kaiet",test);
-    model.addAttribute("hello","Hello from controller");
+    List<User> listUsers = this.userService.getUsersByEmail("kai01237@gmail.com");
+    System.out.println(listUsers);
     return "hello";
   }
   @RequestMapping("admin/user")

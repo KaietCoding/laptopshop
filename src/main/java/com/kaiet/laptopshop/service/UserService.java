@@ -1,5 +1,7 @@
 package com.kaiet.laptopshop.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.kaiet.laptopshop.domain.User;
@@ -19,5 +21,13 @@ public class UserService {
 
   public User saveUser(User user){
     return this.userRepository.save(user);
+  }
+
+  public List<User> getAllUsers(){
+    return this.userRepository.findAll();
+  }
+
+  public List<User> getUsersByEmail(String mail){
+    return this.userRepository.findByEmail(mail);
   }
 }
