@@ -6,7 +6,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Details ${id}</title>
+    <title>User Details ${user.id}</title>
     <link rel="stylesheet" href="/css/demo.css">
     <!-- Latest compiled and minified CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -20,17 +20,18 @@
       <div class="row">
         <div class="col-12 mx-auto">
           <div class="d-flex justify-content-between">
-            <h3>User Details ${id}</h3>
+            <h3>User Details ${user.id}</h3>
           </div>
           <hr>
           <div class="card" style="width: 18rem;">
             <div class="card-header">User Information</div>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">ID: ${id}</li>
-              <li class="list-group-item">Fullname</li>
-              <li class="list-group-item">Email</li>
+              <li class="list-group-item">ID: ${user.id}</li>
+              <li class="list-group-item">Fullname: ${user.fullname}</li>
+              <li class="list-group-item">Email: ${user.email}</li>
             </ul>
             </div>
+            <a href="/admin/user" class="btn btn-primary mt-3">Back</a>
         </div>
       </div>
     </div>
