@@ -21,7 +21,7 @@
         <div class="col-12 mx-auto">
           <div class="d-flex justify-content-between">
             <h3>Table User</h3>
-            <a href="user/create" class="btn btn-primary">Create a user</a>
+            <a href="/admin/user/create" class="btn btn-primary">Create a user</a>
           </div>
           <hr>
           <table class="table table-bordered">
@@ -34,36 +34,18 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>
-                  <button class="btn btn-success">View</button>
-                  <button class="btn btn-warning mx-2">Update</button>
-                  <button class="btn btn-danger">Delete</button>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>
-                  <button class="btn btn-success">View</button>
-                  <button class="btn btn-warning mx-2">Update</button>
-                  <button class="btn btn-danger">Delete</button>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td >Larry</td>
-                <td >Bird</td>
-                <td>
-                  <button class="btn btn-success">View</button>
-                  <button class="btn btn-warning mx-2">Update</button>
-                  <button class="btn btn-danger">Delete</button>
-                </td>
-              </tr>
+              <c:forEach var="user" items="${users}">
+                <tr>
+                  <th scope="row">${user.id}</th>
+                  <td>${user.fullname}</td>
+                  <td>${user.email}</td>
+                  <td>
+                    <a href="/admin/user/${user.id}" class="btn btn-success">View</a>
+                    <button class="btn btn-warning mx-2">Update</button>
+                    <button class="btn btn-danger">Delete</button>
+                  </td>
+                </tr>
+                </c:forEach>
             </tbody>
           </table>
         </div>

@@ -16,6 +16,11 @@ public class User {
   private String address;
   private String phone;
 
+  // ID
+  public long getId() {
+    return id;
+  }
+
   // FULLNAME
   public String getFullname() {
     return fullname;

@@ -4,17 +4,14 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.kaiet.laptopshop.domain.User;
-import com.kaiet.laptopshop.repository.UserRepository;
 import com.kaiet.laptopshop.service.UserService;
 
-// @Controller
 @Controller
 public class UserController {
   private final UserService userService;
@@ -33,7 +30,15 @@ public class UserController {
 
   @RequestMapping("admin/user")
   public String getUserPage(Model model){
+    List<User> users = this.userService.getAllUsers();
+    model.addAttribute("users", users);
     return "admin/user/table-user";
+  }
+
+  @RequestMapping("admin/user/{id}")
+  public String getUserDetailPage(@PathVariable long id,Model model){
+    model.addAttribute("id",id);
+    return"admin/user/show";
   }
 
   @RequestMapping("admin/user/create")
@@ -44,6 +49,7 @@ public class UserController {
 
   @RequestMapping(value="admin/user/create",method = RequestMethod.POST)
   public String creatUserPage(Model model,@ModelAttribute("newUser") User kaiet){
-    return "hello";
+    this.userService.saveUser(kaiet);
+    return "redirect:/admin/user";
   }
 }
