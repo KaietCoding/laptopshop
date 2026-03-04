@@ -19,9 +19,10 @@
     <div class="container mt-5">
       <div class="row">
         <div class="col-md-6 ol-12 mx-auto">
-          <form:form method="POST" action="/admin/user/update/${newUser.id}" modelAttribute="newUser">
+          <form:form method="POST" action="/admin/user/update" modelAttribute="newUser">
             <h1>UPDATE USER ${newUser.id}</h1>
             <hr/>
+            <form:hidden path="id"/>
             <div class="mb-3">
               <label for="fullname" class="form-label">Fullname</label>
               <form:input type="text" class="form-control" path="fullname"/>

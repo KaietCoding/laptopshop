@@ -29,6 +29,7 @@
               <li class="list-group-item">ID: ${user.id}</li>
               <li class="list-group-item">Fullname: ${user.fullname}</li>
               <li class="list-group-item">Email: ${user.email}</li>
+              <li class="list-group-item">Adress: ${user.address}</li>
             </ul>
             </div>
             <a href="/admin/user" class="btn btn-primary mt-3">Back</a>
