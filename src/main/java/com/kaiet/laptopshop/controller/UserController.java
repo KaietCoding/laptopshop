@@ -95,7 +95,6 @@ public class UserController {
   public String postDeleteUser(@ModelAttribute("newUser") User user){
     System.out.println(user);
     this.userService.deleteUserbyId(user.getId());
-    
     return "redirect:/admin/user";
   }
 }
